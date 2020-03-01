@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/bbalbon/Exoplanetary#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
     "express": "^4.17.1",
+    "mongoose": "^5.9.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
