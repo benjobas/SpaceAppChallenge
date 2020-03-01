@@ -22,9 +22,26 @@ const App = () => {
       })
   }
 
+  const calculateHabitableZone = (planets) => {
+    const sunTemp = 5700;
+    const aI = 0.000027619;
+    const bI = 0.0000000038095;
+    const a0 = 0.00013786;
+    const b0 = 0.0000000014286;
+    const rIs = 0.72;
+    const r0s = 1.77;
+    return planets.filter(planet => {
+      let innerBound = (rIs - aI * (planet.st_teff - sunTemp) - (bI * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(planet.st_lum);
+      let outerBound = (r0s - a0 * (planet.st_teff - sunTemp) - (b0 * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(planet.st_lum);
+      return planet.pl_orbsmax >= innerBound && planet.pl_orbsmax <= outerBound;
+    })
+  }
+
   return (
     <div>
-      React working!
+      <h1>
+        React working!
+      </h1>
       <button onClick={populatePlanets}>
         Populate Planets
       </button>
