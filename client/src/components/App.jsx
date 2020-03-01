@@ -11,14 +11,12 @@ const App = () => {
   const populatePlanets = () => {
     axios.get('https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_hostname,pl_name,pl_orbper,pl_orbsmax,pl_eqt,pl_masse,pl_disc,st_lum,st_teff,gaia_dist&format=json')
       .then((response) => {
+        let habitablePlanets = calculateHabitableZone(response.data);
         axios({
           method: 'post',
           url: '/populate',
-          data: response.data,
+          data: habitablePlanets,
         })
-          .then(() => {
-            console.log('populated');
-          })
       })
   }
 
@@ -31,9 +29,12 @@ const App = () => {
     const rIs = 0.72;
     const r0s = 1.77;
     return planets.filter(planet => {
-      let innerBound = (rIs - aI * (planet.st_teff - sunTemp) - (bI * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(planet.st_lum);
-      let outerBound = (r0s - a0 * (planet.st_teff - sunTemp) - (b0 * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(planet.st_lum);
-      return planet.pl_orbsmax >= innerBound && planet.pl_orbsmax <= outerBound;
+      if (planet.st_teff !== null && planet.st_lum !== null && planet.pl_orbsmax !== null) {
+        const luminosity = 10 ** (planet.st_lum)
+        const innerBound = (rIs - aI * (planet.st_teff - sunTemp) - (bI * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(luminosity);
+        const outerBound = (r0s - a0 * (planet.st_teff - sunTemp) - (b0 * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(luminosity);
+        return planet.pl_orbsmax >= innerBound && planet.pl_orbsmax <= outerBound;
+      }
     })
   }
 
