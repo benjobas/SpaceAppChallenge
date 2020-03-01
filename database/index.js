@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/planets');
+mongoose.connect('mongodb://localhost/planets', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const planetSchema = mongoose.Schema({
   name: String,
@@ -12,6 +12,8 @@ const planetSchema = mongoose.Schema({
   discYear: String,
   starLum: Number,
   starTemp: Number,
+  ra: Number,
+  dec: Number
 })
 
 const Planet = mongoose.model('Planet', planetSchema);

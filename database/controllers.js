@@ -21,6 +21,8 @@ const insertPlanets = (entries) => {
       discYear: entry.pl_disc,
       starLum: entry.st_lum,
       starTemp: entry.st_teff,
+      ra: entry.ra,
+      dec: entry.dec,
     }
     return toEnter;
   })
@@ -33,7 +35,15 @@ const insertPlanets = (entries) => {
   })
 }
 
+const getPlanets = () => new Promise((resolve, reject) => {
+  Planet.find({}, (err, data) => {
+    if (err) { reject(err) }
+    else { resolve(data) }
+  })
+})
+
 module.exports = {
   insertPlanets,
-  removeOld
+  removeOld,
+  getPlanets
 }
