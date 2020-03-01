@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Planets from './Planets.jsx';
 
 const App = () => {
   const [current, setCurrent] = useState(null);
+  const [planets, setPlanets] = useState([]);
 
   useEffect(() => {
-    console.log('mounted');
+    axios.get('/planets')
+      .then((response) => {
+        setPlanets(response.data);
+      })
   }, []);
 
   const populatePlanets = () => {
@@ -43,6 +48,7 @@ const App = () => {
       <h1>
         React working!
       </h1>
+      <Planets planets={planets}/>
       <button onClick={populatePlanets}>
         Populate Planets
       </button>

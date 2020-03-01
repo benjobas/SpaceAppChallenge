@@ -35,7 +35,15 @@ const insertPlanets = (entries) => {
   })
 }
 
+const getPlanets = () => new Promise((resolve, reject) => {
+  Planet.find({}, (err, data) => {
+    if (err) { reject(err) }
+    else { resolve(data) }
+  })
+})
+
 module.exports = {
   insertPlanets,
-  removeOld
+  removeOld,
+  getPlanets
 }

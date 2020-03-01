@@ -21,6 +21,18 @@ app.post('/populate', (req, res) => {
     })
 })
 
+app.get('/planets', (req, res) => {
+  controllers.getPlanets()
+    .then((planets) => {
+      res.status(200);
+      res.send(planets)
+    })
+    .catch(() => {
+      res.status(400);
+      res.send('Request Failed');
+    })
+})
+
 app.listen(8080, () => {
   console.log('Listening on port 8080');
 })
