@@ -21,6 +21,8 @@ const insertPlanets = (entries) => {
       discYear: entry.pl_disc,
       starLum: entry.st_lum,
       starTemp: entry.st_teff,
+      ra: entry.ra,
+      dec: entry.dec,
     }
     return toEnter;
   })
