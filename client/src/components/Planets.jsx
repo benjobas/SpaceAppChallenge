@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
 const Planets = (props) => {
+
+  const calculateRA = (planet) => {
+    const width = window.innerWidth;
+    const adjusted = width / 360;
+    return planet.ra * adjusted;
+  }
+
+  const calculateDEC = (planet) => {
+    const height = window.innerHeight - 30;
+    const adjusted = height / 180;
+    let dec = planet.dec
+    if (dec < 0) {
+      dec = Math.abs(dec) + 90;
+    }
+    if (dec * adjusted < 1) {
+      dec += 20;
+    }
+    return dec * adjusted;
+  }
+
   return (
-    <div id="planets">
-      {props.planets.map((planet, i) => (
-        <svg className="circle" key={i}>
-          <circle cx={`${planet.ra}`} cy={planet.dec < 0 ? `${planet.dec + 90}` : `${planet.dec}`} r="12.875" style={{fill: "rgb(137, 200, 244)"}}>
-          </circle>
-        </svg>
-      ))}
-    </div>
+    <circle cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: "rgb(137, 200, 244)"}}/>
   )
 }
 
