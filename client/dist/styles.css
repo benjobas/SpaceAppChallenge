@@ -1,15 +1,14 @@
 body {
   text-align: center;
+  margin: 0;
+}
+
+canvas {
+  background-color: #101010;
 }
 
 #planets {
   display:flex;
   align-items: center;
   justify-content: center;
-}
-
-svg {
-  height: 400px;
-  width: 100%;
-  overflow: scroll;
 }
