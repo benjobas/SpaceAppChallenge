@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Planets from './Planets.jsx';
+import PlanetModal from './PlanetModal.jsx';
 
 const App = () => {
   const [current, setCurrent] = useState(null);
@@ -46,15 +47,16 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div id="main">
       <h1 id="title">
         Welcome To Exoplanetary
       </h1>
       <svg id="planet_container" height={`${window.innerHeight}`} width={`${window.innerWidth}`}>
         {planets.map((planet, i) => (
-          <Planets planet={planet} key={i}/>
+          <Planets planet={planet} key={i} select={setCurrent}/>
         ))}
       </svg>
+      {current ? <PlanetModal planet={current} select={setCurrent}/> : <span></span>}
       <button onClick={populatePlanets}>
         Populate Planets
       </button>
