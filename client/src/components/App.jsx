@@ -45,10 +45,14 @@ const App = () => {
 
   return (
     <div>
-      <h1>
-        React working!
+      <h1 id="title">
+        Welcome To Exoplanetary
       </h1>
-      <Planets planets={planets}/>
+      <svg height={`${window.innerHeight}`} width={`${window.innerWidth}`}>
+        {planets.map((planet, i) => (
+          <Planets planet={planet} key={i}/>
+        ))}
+      </svg>
       <button onClick={populatePlanets}>
         Populate Planets
       </button>
