@@ -48,7 +48,7 @@ const App = () => {
       <h1 id="title">
         Welcome To Exoplanetary
       </h1>
-      <svg height={`${window.innerHeight}`} width={`${window.innerWidth}`}>
+      <svg id="planet_container" height={`${window.innerHeight}`} width={`${window.innerWidth}`}>
         {planets.map((planet, i) => (
           <Planets planet={planet} key={i}/>
         ))}

@@ -22,8 +22,8 @@ canvas {
   z-index:-1;
 }
 
-#planets {
-  height: 400px;
+.planet:hover {
+  cursor: pointer;
 }
 
 svg {

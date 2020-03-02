@@ -24,7 +24,7 @@ const Planets = (props) => {
   }
 
   return (
-    <circle cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: `${getPlanetColor()}`}}/>
+    <circle className="planet" id={`${props.planet.name} ${props.planet.starName}`} cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: `${getPlanetColor()}`}}/>
   )
 }
 
