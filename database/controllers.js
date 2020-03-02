@@ -23,6 +23,7 @@ const insertPlanets = (entries) => {
       starTemp: entry.st_teff,
       ra: entry.ra,
       dec: entry.dec,
+      color: entry.color,
     }
     return toEnter;
   })

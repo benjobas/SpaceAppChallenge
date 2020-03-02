@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Planets = (props) => {
+  let [selected, changeSelected] = useState(false);
 
   const calculateRA = (planet) => {
     const width = window.innerWidth;
@@ -15,14 +16,29 @@ const Planets = (props) => {
     if (dec < 0) {
       dec = Math.abs(dec) + 90;
     }
-    if (dec * adjusted < 1) {
-      dec += 20;
-    }
-    return dec * adjusted;
+    return (dec * adjusted) + 20;
   }
 
+  const changeSize = (boolean) => {
+    !boolean ? changeSelected(false) : changeSelected(true);
+  }
+
+  const ra = calculateRA(props.planet);
+  const dec = calculateDEC(props.planet);
+
   return (
-    <circle cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: "rgb(137, 200, 244)"}}/>
+    <g className="planet_wrapper">
+      <circle 
+        className="planet" 
+        id={`${props.planet.name} ${props.planet.starName}`} 
+        cx={ra} cy={dec} r={selected ? "11.75" : "5.875"} 
+        style={{fill: `${props.planet.color}`}} strokeWidth="1" stroke="white" 
+        onMouseEnter={() => changeSize(true)} 
+        onMouseLeave={() => changeSize(false)}
+        onClick={() => props.select(props.planet)}
+      />
+      <text color="white" x={ra + 15} y={dec} className="planet_name" id={selected ? "name_enlarge" : "none"}>{props.planet.name}</text>
+    </g>
   )
 }
 
