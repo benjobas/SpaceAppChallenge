@@ -22,8 +22,12 @@ canvas {
   z-index:-1;
 }
 
-.planet:hover {
+.planet_wrapper:hover {
   cursor: pointer;
+}
+
+.planet_name {
+  color: white;
 }
 
 svg {

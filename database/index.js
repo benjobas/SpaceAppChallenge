@@ -13,7 +13,8 @@ const planetSchema = mongoose.Schema({
   starLum: Number,
   starTemp: Number,
   ra: Number,
-  dec: Number
+  dec: Number,
+  color: String,
 })
 
 const Planet = mongoose.model('Planet', planetSchema);

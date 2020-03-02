@@ -26,6 +26,7 @@ const App = () => {
   }
 
   const calculateHabitableZone = (planets) => {
+    const colors = ['rgb(137, 200, 244)','rgb(136, 44, 44)','rgb(180, 111, 21)', 'rgb(26, 174, 194)'];
     const sunTemp = 5700;
     const aI = 0.000027619;
     const bI = 0.0000000038095;
@@ -38,6 +39,7 @@ const App = () => {
         const luminosity = 10 ** (planet.st_lum)
         const innerBound = (rIs - aI * (planet.st_teff - sunTemp) - (bI * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(luminosity);
         const outerBound = (r0s - a0 * (planet.st_teff - sunTemp) - (b0 * (planet.st_teff - sunTemp) ** 2)) * Math.sqrt(luminosity);
+        planet.color = colors[Math.floor(Math.random() * colors.length)];
         return planet.pl_orbsmax >= innerBound && planet.pl_orbsmax <= outerBound;
       }
     })
