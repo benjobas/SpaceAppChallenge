@@ -8,6 +8,11 @@ const Planets = (props) => {
     return planet.ra * adjusted;
   }
 
+  const getPlanetColor = () => {
+    const colors = ['rgb(137, 200, 244)','rgb(136, 44, 44)','rgb(180, 111, 21)', 'rgb(26, 174, 194)'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
   const calculateDEC = (planet) => {
     const height = window.innerHeight - 30;
     const adjusted = height / 180;
@@ -15,14 +20,11 @@ const Planets = (props) => {
     if (dec < 0) {
       dec = Math.abs(dec) + 90;
     }
-    if (dec * adjusted < 1) {
-      dec += 20;
-    }
-    return dec * adjusted;
+    return (dec * adjusted) + 20;
   }
 
   return (
-    <circle cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: "rgb(137, 200, 244)"}}/>
+    <circle cx={calculateRA(props.planet)} cy={calculateDEC(props.planet)} r="5.875" style={{fill: `${getPlanetColor()}`}}/>
   )
 }
 
