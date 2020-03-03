@@ -135,3 +135,13 @@ button:hover {
 #close_modal:hover {
   color: black;
 }
+
+#planet_icon {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}

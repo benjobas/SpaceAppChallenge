@@ -1,6 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import anime from 'animejs/lib/anime.es.js';
 
 const PlanetModal = (props) => {
+
+  const animate = (planet) => {
+    const path = anime.path('#path');
+    anime({
+      targets: '#planet_icon',
+      translateX: path('x'),
+      translateY: path('y'),
+      rotate: path('angle'),
+      easing: 'linear',
+      duration: planet.orbitPer * 300,
+      loop: true
+    });
+  }
+
+  useEffect(() => {
+    animate(props.planet);
+  }, [])
 
   return (
     <div id="modal_wrapper">
@@ -24,9 +42,11 @@ const PlanetModal = (props) => {
           </div>
           <div id="orbital_map">
             <svg id="orbit" viewBox="0 0 400 300" height="300" width="400">
-              <path d="M 100 50 A 50 50 0 1 1 300 250 A 50 50 0 1 1 100 50z" fill="none" stroke="black" strokeWidth="2"></path>
+              <path id="path" d="M 100 50 A 50 50 0 1 1 300 250 A 50 50 0 1 1 100 50z" fill="none" stroke="black" strokeWidth="1"></path>
             </svg>
-          </div>
+            <div id="planet_icon" style={{backgroundColor: `${props.planet.color}`}}>
+            </div>
+            </div>
           <div id="distance">
             Distance From Earth: {props.planet.distance} parsecs
           </div>
