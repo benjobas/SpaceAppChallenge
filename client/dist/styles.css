@@ -55,10 +55,184 @@ canvas {
   z-index: 5;
   height: 50%;
   width: 50%;
-  background-color: rgb(87, 83, 83);
-  border-radius: 2px;
+  background-color: rgba(87, 89, 99, 0.9);
+  border-radius: 3px;
+  display: grid;
+  grid-template: 1fr 2fr 2fr 1fr / repeat(4, 1fr);
+  color: rgb(223, 219, 219);
 }
 
-svg {
-  z-index: 3;
+#planet_name {
+  grid-area: 1/1/1/5;
+}
+
+#orbital_radius {
+  grid-area: 2/1/2/1;
+}
+
+#planet_mass {
+  grid-area: 3/1/3/1;
+}
+
+#distance {
+  grid-area: 4/1/4/4;
+}
+
+#discovery_year {
+  grid-area: 4/4/4/4;
+}
+
+#orbital_map {
+  grid-area: 2/2/4/5;
+}
+
+#planet_name, #orbital_radius, #planet_mass, #distance, #discovery_year, #orbital_map{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(59, 60, 65, 1);
+  margin: 10px 10px;
+  border-radius: 3px;
+}
+
+#planet_name {
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+#close_modal {
+  background-color: rgb(59, 60, 65);
+  border: none;
+  font-size: 20px;
+  margin-right: 10px;
+  color:rgb(223, 219, 219);
+}
+
+.modal_t-enter {
+  opacity: 0.01;
+}
+
+.modal_t-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#close_modal:hover {
+  color: black;
+}
+
+#planet_icon {
+  border-radius: 50%;
+  border: 2px solid #000;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+
+.shadow {
+  position: absolute;
+  margin: 200px auto 0;
+  z-index: 10;
+  top: 5%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.shadow:before,
+.shadow:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, orange, yellow, rgb(184, 181, 8), rgb(255, 166, 0), rgb(255, 115, 0), rgb(240, 212, 53));
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background-size: 400%;
+  z-index: -1;
+  animation: shadow 20s linear infinite;
+}
+
+@keyframes shadow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.shadow:after {
+  filter: blur(20px) ;
+}
+
+#search_bar {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.search-box {
+  border: 4px solid transparent;
+  border-radius: 2px;
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.search-btn {
+  position: absolute;
+  height: 25%;
+  width: 2em;
+  margin-top: -2em;
+  top: 80%;
+  right: 0.001em;
+
+  opacity: 0.2;
+  background-color: transparent;
+  border: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAACnElEQVR4AcXZsUsbYRjH8e+dh2s1SyAGJwMJuDj1BIcEhJQIOnTq5F+QOf0jIq79A7oFh7aYyVBEkaZDC3awECc1AUXRIqUQotfFocnjJe/dk+b9PKP65Md7z13ee3Uwk2SNHKmngs5TnbDLJQqjA+RYZ4OXuDzvkSYf+cAJ44fPAYFhHeAzVhlqBBGrRoax8KjSJYhRXap4KCVoECiqQQKFLC0CZbXIElOBOwJ9cUchzm2Y5QsveN4tdfY4o00HSDHHPKuUmOV5v/D5SSSJ0MXfIY+HBB55dkIvRIIIvJDR28dnFJ/9kHH0MFaVDehRxlSZnuxAFUMZunKQKBJFUQ4wXTIYqcmPZ5GoFmUEahjw5eJTJI6ivBD4jCS/csrEVZZfU4yQk5OPhrwjcoRygQ0GVdCQf73OUEfisaMkHk1HDJHkYeDX82jlBzo+kCSEyxruwDP/EK1DbsWnhHDFgNTpodWjLgY9NECKfnvoyS4p8wBngN5Z/ABtQK8dP0AH0OuYB5iMqfAAMque7HJtHmAOPdnlxjzAPHqyy5V5gFX0ZJfj8AAn9CvhoeVRol8zPMAuj/xrlhW0Vpg1D3ApflhGR3b4wTlDvI24i4u+w9y0uyVrM213U1qxuy2/Z8bui8m23VezgGW7L6cBLdIWXs9FBAsHFCLCJI9opFMKXEzkkEp/IbK0bEdI0LARQRzVWoigPKy+Z5tlWooIiuP6NhVmAEiPNwLkqHDEw5CGx2wyDQDRI8T7l80U19xwxTFNmpwzKM1nFsyeCw7jFymCAxYjrHDp8r9cUOCUYRZ4Bw6AxVV47QJYXIVXLliNsOSC1Qh/XLAa4ZuDmmIcH1l2AaytwhZfmaAkn/qOb7eYBofJekOJJX7znfccAvwFyB3OeNys7d4AAAAASUVORK5CYII=");
+}
+.search-btn:hover {
+  outline: none;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+#results_wrapper {
+  position: absolute;
+  height: 110px;
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+  justify-content: space-evenly;
+}
+
+.search_result {
+  margin: 10px 10px;
+  height: 18px;
+  width: 80%;
+  font-size: 15px;
+  color:black;
+  border: 1px solid grey;
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 0px;
+}
+
+.search_result:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: rgb(167, 92, 92);
 }
