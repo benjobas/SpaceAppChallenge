@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Planets from './Planets.jsx';
 import PlanetModal from './PlanetModal.jsx';
+import SearchBar from './SearchBar.jsx';
 import { CSSTransition } from 'react-transition-group';
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
     <div id="main">
       <h1 id="title">
         Welcome To Exoplanetary
+        <SearchBar set={setCurrent}/>
       </h1>
       <svg id="planet_container" height={`${window.innerHeight}`} width={`${window.innerWidth}`}>
         {planets.map((planet, i) => (
