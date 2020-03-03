@@ -15,7 +15,7 @@ const draw = (star) => {
   star.y -= star.velocity;
   star.alpha -= 5e-4;
   c.beginPath();
-  c.arc(star.x, star.y, star.scale * 4, 0, 2 * Math.PI, false);
+  c.arc(star.x, star.y, star.scale * 5, 0, 2 * Math.PI, false);
   if (parseInt(Math.random()) * 100 % 3 == 0)
       c.fillStyle = "rgba(255,255,255," + star.alpha + ")";
   else
@@ -29,7 +29,7 @@ function createStar(existingStar) {
   star.y = Math.random() * totalHeight;
   star.alpha = .2 + Math.random();
   star.scale = .1 + Math.random() / 10;
-  star.velocity = Math.random() * .03;
+  star.velocity = Math.random() * .04;
 
   return star;
 }

@@ -58,7 +58,7 @@ canvas {
   background-color: rgba(87, 89, 99, 0.9);
   border-radius: 3px;
   display: grid;
-  grid-template: 1fr 2fr 2fr 1fr / repeat(4, 1fr);
+  grid-template: 1fr 2fr 2fr 1fr / 1.5fr 1fr 1fr 1fr;
   color: rgb(223, 219, 219);
 }
 
@@ -68,6 +68,23 @@ canvas {
 
 #orbital_radius {
   grid-area: 2/1/2/1;
+}
+
+#radius {
+  grid-area: 1/1/1/1;
+}
+
+#period {
+  grid-area: 2/1/2/1;
+}
+
+#mass {
+  grid-area: 1/1/1/1;
+}
+
+#temperature {
+  grid-area: 2/1/2/1;
+  margin-left: 10px;
 }
 
 #planet_mass {
@@ -93,11 +110,19 @@ canvas {
   background-color: rgb(59, 60, 65, 1);
   margin: 10px 10px;
   border-radius: 3px;
+  font-size: 15px;
+}
+
+#discovery_year {
+  font-size: 13px;
 }
 
 #planet_name {
   justify-content: space-between;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: Audiowide;
+  color: yellow;
 }
 
 #close_modal {
@@ -132,7 +157,7 @@ button:hover {
   width: 25px;
   position: absolute;
   top: 15%;
-  left: 35%;
+  left: 44%;
 }
 
 .shadow {
@@ -181,24 +206,21 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding-left: 10px;
-  margin-bottom: 10px;
 }
 
 .search-box {
   border: 4px solid transparent;
   border-radius: 2px;
-  width: 100%;
+  width: 120%;
   transition: width 0.3s;
 }
 
 .search-btn {
   position: absolute;
   height: 25%;
-  width: 2em;
-  margin-top: -2em;
-  top: 80%;
-  right: 0.001em;
-
+  width: 1em;
+  top: 65%;
+  left: 101%;
   opacity: 0.2;
   background-color: transparent;
   border: 0;
@@ -234,5 +256,19 @@ button:hover {
 .search_result:hover {
   cursor: pointer;
   opacity: 0.8;
-  background-color: rgb(167, 92, 92);
+  background-color: yellow;
+}
+
+.planet_info {
+  font-family: audioWide;
+  font-size: 20px;
+  color: yellow;
+}
+
+.star_name {
+  font-size: 10px;
+  color: red;
+  font-family: audioWide;
+  position: absolute;
+  top: 41%;
 }
