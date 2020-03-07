@@ -4,7 +4,7 @@ import anime from 'animejs/lib/anime.es.js';
 const PlanetModal = (props) => {
 
   const animate = (planet) => {
-    const path = anime.path('#path');
+    const path = anime.path('#animation_path');
     anime({
       targets: '#planet_icon',
       translateX: path('x'),
@@ -41,8 +41,9 @@ const PlanetModal = (props) => {
             <span id="temperature">Planet Temp (K):<br/><span className="planet_info">{props.planet.planetTemp || "N/A"}</span></span>
           </div>
           <div id="orbital_map">
-            <svg id="orbit" viewBox="0 0 400 300" height="300" width="400">
-              <path id="path" d="M 100 50 A 50 50 0 1 1 300 250 A 50 50 0 1 1 100 50z" fill="none" stroke="black" strokeWidth="1"></path>
+            <svg id="orbit" viewBox="0 0 500 300">
+              <path id="path" d="M 50 150 C 50 50 450 50 450 150 C 450 250 50 250 50 150z" fill="none" stroke="black" strokeWidth="1"></path>
+              <path id="animation_path" d="M -170 0 C -170 -120 170 -100 170 0 C 170 100 -170 100 -170 0z" fill="none"></path>
             </svg>
             <div id="planet_icon" style={{background: `${props.planet.color}`}}>
             </div>
