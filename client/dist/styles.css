@@ -156,15 +156,12 @@ button:hover {
   height: 25px;
   width: 25px;
   position: absolute;
-  top: 15%;
-  left: 44%;
 }
 
 .shadow {
   position: absolute;
-  margin: 200px auto 0;
   z-index: 10;
-  top: 5%;
+  top: 48%;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -271,4 +268,9 @@ button:hover {
   font-family: audioWide;
   position: absolute;
   top: 41%;
+}
+
+#orbit {
+  height: 100%;
+  width: 100%;
 }
