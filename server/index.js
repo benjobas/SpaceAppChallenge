@@ -6,32 +6,37 @@ const controllers = require('../database/controllers.js');
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.post('/populate', (req, res) => {
-  controllers.removeOld()
-    .then(() => {
-      controllers.insertPlanets(req.body);
-    })
-    .then(() => {
-      res.status(200);
-      res.send('Successfully Replaced and Populated');
-    })
-    .catch(() => {
-      res.status(400);
-      res.send('Failed');
-    })
-})
+app.post('/populate', async (req, res) => {
+  try {
+    await controllers.removeOld();
+    const apiData = req.body; 
+    await controllers.insertPlanets(apiData);
+    res.status(200).send('Successfully Replaced and Populated');
+  } catch (error) {
+    console.error(error);
+    res.status(400).send('Failed to populate planets');
+  }
+});
 
-app.get('/planets', (req, res) => {
-  controllers.getPlanets()
-    .then((planets) => {
-      res.status(200);
-      res.send(planets)
-    })
-    .catch(() => {
-      res.status(400);
-      res.send('Request Failed');
-    })
-})
+app.get('/planets', async (req, res) => {
+  try {
+    const planets = await controllers.getPlanets();
+    res.status(200).send(planets);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send('Request Failed');
+  }
+});
+
+app.post('openai', async (req, res) => {
+  try {
+    const response = await controllers.openAI(req.body);
+    res.status(200).send(response);
+  } catch (error) {
+    console.error(error);
+    res.status(400).send('Request Failed');
+  }
+});
 
 app.listen(8080, () => {
   console.log('Listening on port 8080');

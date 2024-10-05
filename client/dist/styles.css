@@ -274,3 +274,58 @@ button:hover {
   height: 100%;
   width: 100%;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
+.primaryButton {
+  position: fixed;
+  top: 10px;
+  left: 10px; /* Ajusta la posición según necesites */
+  padding: 10px 20px;
+  background-color: rgb(59, 60, 65); /* Color de fondo */
+  color: rgb(223, 219, 219); /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 10; 
+}
+
+.primaryButton:hover {
+  background-color: rgb(80, 80, 80);
+  color: white; 
+}
+
+.primaryButton:active {
+  background-color: rgb(100, 100, 100);
+}
+
+.primaryButton:focus {
+  outline: none;
+}

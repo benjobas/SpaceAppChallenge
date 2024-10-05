@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/planets', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://benjobas:benjitosan2@cluster0.rkc41.mongodb.net/planet?retryWrites=true&w=majority&appName=Cluster0', { useUnifiedTopology: true });
 
 const planetSchema = mongoose.Schema({
   name: String,
