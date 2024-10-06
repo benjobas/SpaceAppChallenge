@@ -77,7 +77,7 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
       <div className="drawing-modal" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 1000 }}>
         {!hasDrawn && (
             <h1 style={{ position: "absolute", top: "25%", left: "50%", transform: "translate(-50%, -50%)", color: "white", backgroundColor: "rgba(0, 0, 0, 0.7)", padding: "10px", borderRadius: "5px", border: "2px solid white" }}>
-  Empieza a dibujar
+  Stat drawing your constellation!
 </h1>
 
         )}
@@ -95,7 +95,7 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
           }}
         />
         <label style={{ position: "absolute", top: 10, left: 300 }}>
-          Nombra tu constelación
+          Name your constellation:
           <input
             type="text"
             value={constellationName}
@@ -103,8 +103,8 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
             style={{ marginLeft: 10 }}
           />
         </label>
-        <button className="button-29" onClick={exportAsImage} style={{ position: "absolute", top: 10, left: 10 }}>Descargar</button>
-        <button className="button-29" onClick={handleClose} style={{ position: "absolute", top: 10, right: 10 }}>Cerrar</button>
+        <button className="button-29" onClick={exportAsImage} style={{ position: "absolute", top: 10, left: 10 }}>Download</button>
+        <button className="button-29" onClick={handleClose} style={{ position: "absolute", top: 10, right: 10 }}>Close</button>
       </div>
     )
   );

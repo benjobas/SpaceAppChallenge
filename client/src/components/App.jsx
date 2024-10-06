@@ -103,7 +103,7 @@ const App = () => {
             fontWeight: "800",
           }}
         >
-          Bienvenido a SpaceLab
+          Welcome to Space Lab
         </h1>
         <p
           style={{
@@ -111,7 +111,7 @@ const App = () => {
             fontWeight: "700",
           }}
         >
-          Elige un exoplaneta
+          Choose a exoplanet to learn more about it
         </p>
       </div>
 
