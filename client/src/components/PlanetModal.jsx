@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import DrawingCanvas from './DrawingCanvas.jsx';
 
 const PlanetModal = (props) => {
   const [isDrawingOpen, setIsDrawingOpen] = useState(false);
@@ -54,6 +55,7 @@ const PlanetModal = (props) => {
           <div id="discovery_year">
             Periodo [días]&nbsp;<span className="planet_info">{props.planet.discYear}</span>
           </div>
+          <DrawingCanvas isOpen={isDrawingOpen} onClose={closeDrawingCanvas} />
         </div>
     </div>
   )
