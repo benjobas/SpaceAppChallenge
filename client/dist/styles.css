@@ -5,7 +5,7 @@ body {
 }
 
 #title {
-  color:white;
+  color: white;
   font-size: 60px;
   position: absolute;
   top: 40%;
@@ -14,12 +14,12 @@ body {
 
 canvas {
   background-color: #101010;
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .planet_wrapper:hover {
@@ -42,8 +42,8 @@ canvas {
   z-index: 4;
   top: 0%;
   left: 0%;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
@@ -51,12 +51,12 @@ canvas {
 }
 
 #planet_modal {
-  position:absolute;
+  position: absolute;
   z-index: 5;
   height: 75%;
   width: 50%;
-  background-color: #1B1820FC;
-  border-radius: 3px; 
+  background-color: #1b1820fc;
+  border-radius: 3px;
   color: rgb(223, 219, 219);
 }
 
@@ -64,7 +64,12 @@ canvas {
   grid-template-columns: repeat(3, 1fr);
 }
 
-#planet_name, #orbital_radius, #planet_mass, #distance, #discovery_year, #orbital_map{
+#planet_name,
+#orbital_radius,
+#planet_mass,
+#distance,
+#discovery_year,
+#orbital_map {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +144,15 @@ button:hover {
   top: -2px;
   left: -2px;
   border-radius: 50%;
-  background: linear-gradient(45deg, orange, yellow, rgb(184, 181, 8), rgb(255, 166, 0), rgb(255, 115, 0), rgb(240, 212, 53));
+  background: linear-gradient(
+    45deg,
+    orange,
+    yellow,
+    rgb(184, 181, 8),
+    rgb(255, 166, 0),
+    rgb(255, 115, 0),
+    rgb(240, 212, 53)
+  );
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   background-size: 400%;
@@ -160,7 +173,7 @@ button:hover {
 }
 
 .shadow:after {
-  filter: blur(20px) ;
+  filter: blur(20px);
 }
 
 #search_bar {
@@ -209,7 +222,7 @@ button:hover {
   height: 18px;
   width: 80%;
   font-size: 15px;
-  color:black;
+  color: black;
   border: 1px solid grey;
   border-radius: 3px;
   box-shadow: 0px 0px 2px 0px;
@@ -258,12 +271,12 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .primaryButton {
@@ -274,16 +287,16 @@ html, body {
   background-color: rgb(59, 60, 65); /* Color de fondo */
   color: rgb(223, 219, 219); /* Color del texto */
   border: none; /* Sin borde */
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  z-index: 10; 
+  z-index: 10;
 }
 
 .primaryButton:hover {
   background-color: rgb(80, 80, 80);
-  color: white; 
+  color: white;
 }
 
 .primaryButton:active {
@@ -295,9 +308,66 @@ html, body {
 }
 
 .planet_description {
-font-family: Lexend;
-font-weight: 400;
-font-size: 18px;
-line-height: normal;
-color: #ffffff;
+  font-family: Lexend;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  color: #ffffff;
+}
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  background: rgb(87 89 99 / 0%);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 300px;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 8px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.message.user {
+  display: flex;
+  background: #f2f2f200;
+  align-self: flex-start;
+}
+
+.message.assistant {
+  background: #f2f2f200;
+  display: flex;
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
 }
