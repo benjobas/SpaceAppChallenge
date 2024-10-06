@@ -12,16 +12,17 @@ const ChatComponent = (props) => {
 
     try {
       const response = await axios.post(
-        "https://6533-181-212-199-41.ngrok-free.app/webhook",
+        "https://3b2e-181-212-199-41.ngrok-free.app/webhook",
         { message: input }
       );
 
-      console.log("Respuesta de OpenAI:", response.data.respuesta);
+      console.log("Respuesta de OpenAI:", response.respuesta.output);
 
       const botMessage = {
         role: "assistant",
         content:
-          response.data.respuesta || "No se recibió respuesta del asistente.",
+          response.data.respuesta.output ||
+          "No se recibió respuesta del asistente.",
       };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
