@@ -26,11 +26,11 @@ const PlanetModal = (props) => {
     <div id="modal_wrapper">
       <div id="planet_modal">
         <div id="planet_name">
-          <button id="close_modal" onClick={() => props.select(null)}>
+          <button class="button-19" id="close_modal" onClick={() => props.select(null)}>
             Volver
           </button>
           {!isDrawingOpen && (<>
-          <button id="Crear_constelacion" onClick={openDrawingCanvas}>
+          <button class="button-29" id="Crear_constelacion" onClick={openDrawingCanvas}>
             Crear constelación
           </button>
           </>)}

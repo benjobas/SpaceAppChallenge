@@ -83,8 +83,8 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
             display: "block" 
           }}
         />
-        <button onClick={exportAsImage} style={{ position: "absolute", top: 10, left: 10 }}>Export as Image</button>
-        <button onClick={handleClose} style={{ position: "absolute", top: 10, right: 10 }}>Close</button>
+        <button class="button-29" onClick={exportAsImage} style={{ position: "absolute", top: 10, left: 10 }}>Export as Image</button>
+        <button class="button-29" onClick={handleClose} style={{ position: "absolute", top: 10, right: 10 }}>Close</button>
       </div>
     )
   );
