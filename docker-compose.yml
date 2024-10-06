@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000" # Mapea el puerto 3000 del contenedor al puerto 3000 del host
+    volumes:
+      - .:/app # Sincroniza el código en tiempo real

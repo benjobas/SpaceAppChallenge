@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "670166df6b51b40e90cf8bbd"
+  },
+  "name": "11 Com b",
+  "starName": "Star A",
+  "orbitPer": null,
+  "orbitMax": 1.21,
+  "distance": 93.1846,
+  "planetTemp": null,
+  "planetMass": 5434.7,
+  "discYear": "2007",
+  "starLum": null,
+  "starTemp": null,
+  "ra": 185.1787793,
+  "dec": 17.7932516,
+  "color": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670166df6b51b40e90cf8bbe"
+  },
+  "name": "11 UMi b",
+  "starName": "Star B",
+  "orbitPer": 516.21997,
+  "orbitMax": 1.53,
+  "distance": 125.321,
+  "planetTemp": null,
+  "planetMass": 4684.8142,
+  "discYear": "2009",
+  "starLum": null,
+  "starTemp": 4213,
+  "ra": 229.2745954,
+  "dec": 71.8239428,
+  "color": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67028f68667b831a66ed40bc"
+  },
+  "name": "K2-22 b",
+  "starName": "K2-22",
+  "orbitPer": 2.61,
+  "orbitMax": 169.48,
+  "distance": 243,
+  "planetTemp": 0.205,
+  "planetMass": 2300,
+  "discYear": "2016",
+  "starLum": 0.61,
+  "starTemp": 5000,
+  "ra": 185.1234567,
+  "dec": -12.3456789,
+  "color": "blue",
+  "description": "K2-22 b is a super-Earth exoplanet that orbits the star K2-22. It has a mass of about 2.6 Earth masses and orbits within the habitable zone of its star. Its discovery was announced in 2016."
+}]
