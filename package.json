@@ -23,10 +23,12 @@
     "animejs": "^3.1.0",
     "axios": "^0.19.2",
     "bluebird": "^3.7.2",
+    "dotenv": "^16.4.5",
     "exoplanetary": "file:",
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
     "nodemon": "^3.1.7",
+    "openai": "^4.67.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-transition-group": "^4.3.0"
