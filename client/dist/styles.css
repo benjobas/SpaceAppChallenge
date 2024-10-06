@@ -1,3 +1,4 @@
+
 body {
   text-align: center;
   margin: 0;
@@ -622,4 +623,24 @@ video {
 .button-19:active {
   border-width: 4px 0 0;
   background: none;
+}
+
+#TrophyCounter {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  background-image: url('./trophy-svgrepo-com.svg'); 
+  background-size: 30px 30px; 
+  background-repeat: no-repeat;
+  background-position: left center; 
+  padding-left: 40px; 
+  color: white; 
+  font-size: 20px; 
+}
+
+
+html {
+  cursor: url('rocketCursor.png'), auto;
 }

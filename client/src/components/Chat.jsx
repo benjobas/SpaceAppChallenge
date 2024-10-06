@@ -4,7 +4,8 @@ import axios from "axios";
 const ChatComponent = (props) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  const [suggestions, setSuggestions] = useState([
+  const [count, setCount] = useState(5)
+  const [suggestions, setSuggestions] = useState([  
     "¿Porque no hay agua?",
     "¿Cual es la temperatura?",
     "¿En que influye su distancia desde la tierra?",
@@ -27,6 +28,7 @@ const ChatComponent = (props) => {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
     try {
+      setCount(count + 1)
       const response = await axios.post(
         "https://3b2e-181-212-199-41.ngrok-free.app/webhook",
         { message: message }
@@ -60,6 +62,10 @@ const ChatComponent = (props) => {
 
   return (
     <div className="chat-container">
+      <><span id="TrophyCounter">
+        {count}
+      </span>
+      </>
       {/* Mensajes del chat */}
       <div className="chat-messages">
         {messages.map((msg, index) => (

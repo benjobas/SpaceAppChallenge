@@ -91,7 +91,7 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
             border: "1px solid black", 
             backgroundColor: "transparent", 
             display: "block",
-            cursor:`url('../../rocketCursor.png'), auto`
+            cursor: `url('./rocketCursor.png'), auto`
           }}
         />
         <label style={{ position: "absolute", top: 10, left: 300 }}>
