@@ -8,7 +8,6 @@ const App = () => {
   const [current, setCurrent] = useState(null);
   const [planets, setPlanets] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [count, setCount] = useState(0);
   const [data, setData] = useState(null);
 
   const openModal = () => setIsModalOpen(true);
@@ -24,7 +23,6 @@ const App = () => {
     try {
       const response = await axios.get("/openai");
       setData(response.data);
-      setCount(count + 1);
     } catch (error) {
       console.error(error);
     }
@@ -134,12 +132,6 @@ const App = () => {
           <span></span>
         )}
       </CSSTransition>
-
-      <button className="primaryButton" onClick={() => setCount(count + 1)}>
-        {count}
-      </button>
-
-      <p>Count: {count}</p>
     </div>
   );
 };

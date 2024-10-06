@@ -34,8 +34,7 @@ const insertPlanets = async (entries) => {
         ra: 185.1787793,
         dec: 17.7932516,
         color: null,
-        description:
-          "11 Com b is a gas giant exoplanet that orbits a K-type star. Its mass is 19.4 Jupiters, it takes 326.03 days to complete one orbit of its star, and is 1.29 AU from its star. Its discovery was announced in 2008.",
+        description: "11 Com b is a gas giant exoplanet that orbits a K-type star. Its mass is 19.4 Jupiters, it takes 326.03 days to complete one orbit of its star, and is 1.29 AU from its star. Its discovery was announced in 2008.",
       },
       {
         name: "11 UMi b",
@@ -53,6 +52,22 @@ const insertPlanets = async (entries) => {
         color: null,
         description:
           "11 UMi b is a gas giant exoplanet that orbits a K-type star. Its mass is 10.3 Jupiters, it takes 516.22 days to complete one orbit of its star, and is 1.54 AU from its star. Its discovery was announced in 2009.",
+      },
+      {
+        name: "K2-22 b",
+        starName: "K2-22",
+        orbitPer: 2.61,
+        orbitMax: 169.48,
+        distance: 243,
+        planetTemp: 0.205,
+        planetMass: 2300,
+        discYear: "2016",
+        starLum: 0.61, 
+        starTemp: 5000,
+        ra: 185.1234567, 
+        dec: -12.3456789, 
+        color: "blue", 
+        description: "K2-22 b is a super-Earth exoplanet that orbits the star K2-22. It has a mass of about 2.6 Earth masses and orbits within the habitable zone of its star. Its discovery was announced in 2016.",
       },
     ];
 
