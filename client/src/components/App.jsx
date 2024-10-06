@@ -15,7 +15,7 @@ const App = () => {
   const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
-    axios.get("/planets").then((response) => {
+    axios.get("/api/planets").then((response) => {
       setPlanets(response.data);
     });
   }, []);
