@@ -6,9 +6,9 @@ const ChatComponent = (props) => {
   const [messages, setMessages] = useState([]);
   const [count, setCount] = useState(5)
   const [suggestions, setSuggestions] = useState([  
-    "¿Porque no hay agua?",
-    "¿Cual es la temperatura?",
-    "¿En que influye su distancia desde la tierra?",
+    "¿Cual es el radio?",
+    "¿Hay vida en el planeta?",
+    "¿Que tiene de diferente la tierra con este planeta?",
   ]);
 
   const chatEndRef = useRef(null);
