@@ -4,7 +4,7 @@ require("dotenv").config();
 console.log(process.env.OPENAI_API_KEY);
 const OpenAI = require("openai");
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Hardcodear la API Key aquí
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const removeOld = () =>
   new Promise((resolve, reject) => {
@@ -19,21 +19,6 @@ const removeOld = () =>
 
 const insertPlanets = async (entries) => {
   try {
-    // const planetList = entries.map(entry => ({
-    //   name: entry.pl_name,
-    //   starName: entry.st_name || "Unknown Star",
-    //   orbitPer: entry.pl_orbper || null,
-    //   orbitMax: entry.pl_orbsmax || null,
-    //   distance: entry.sy_dist || null,
-    //   planetTemp: entry.pl_eqt || null,
-    //   planetMass: entry.pl_bmasse || null,
-    //   discYear: entry.disc_year ? entry.disc_year.toString() : null,
-    //   starLum: entry.st_lum || null,
-    //   starTemp: entry.st_teff || null,
-    //   ra: entry.ra || null,
-    //   dec: entry.dec || null,
-    //   color: entry.color || null,
-    // }));
     const planetList = [
       {
         name: "11 Com b",
@@ -89,10 +74,8 @@ const getPlanets = () =>
   });
 const openAI = async (question) => {
   const completion = await openai.chat.completions.create({
-    messages: [
-      { role: "user", content: question.message }, // Asegúrate de que 'question' sea una cadena
-    ],
-    model: "gpt-3.5-turbo", // Asegúrate de que el modelo sea correcto
+    messages: [{ role: "user", content: question.message }],
+    model: "gpt-3.5-turbo",
   });
 
   return completion.choices[0];

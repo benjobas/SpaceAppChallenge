@@ -1,5 +1,5 @@
-import ChatComponent from "./Chat.jsx";
 import React, { useState } from "react";
+import ChatComponent from "./Chat.jsx";
 import DrawingCanvas from "./DrawingCanvas.jsx";
 
 const PlanetModal = (props) => {
@@ -13,7 +13,6 @@ const PlanetModal = (props) => {
     setIsDrawingOpen(false);
   };
 
-  // Datos comunes que se muestran para planetas
   const PlanetInfo = ({ label, value, unit }) => (
     <div>
       <span>{label}:&nbsp;</span>
@@ -37,7 +36,6 @@ const PlanetModal = (props) => {
 
         <h2>{props.planet.name.toUpperCase()}</h2>
 
-        {/* Imagen y descripción del planeta */}
         <div>
           <img
             src="../../k2-22.gif"
@@ -77,7 +75,12 @@ const PlanetModal = (props) => {
           unit="Años Luz"
         />
         <PlanetInfo label="Periodo" value={props.planet.discYear} unit="días" />
-        <ChatComponent />
+
+        {/* Componente de chat */}
+        <div style={{ marginTop: "20px" }}>
+          <h3>Consulta con el asistente:</h3>
+          <ChatComponent />
+        </div>
 
         {/* Canvas para dibujar constelaciones */}
         <DrawingCanvas isOpen={isDrawingOpen} onClose={closeDrawingCanvas} />
