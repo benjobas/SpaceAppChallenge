@@ -1,7 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const PlanetModal = (props) => {
+  const [isDrawingOpen, setIsDrawingOpen] = useState(false);
 
+  const openDrawingCanvas = () => {
+    setIsDrawingOpen(true);
+  };
+
+  const closeDrawingCanvas = () => {
+    setIsDrawingOpen(false);
+  };
 
   return (
     <div id="modal_wrapper">
@@ -10,19 +18,22 @@ const PlanetModal = (props) => {
           <button id="close_modal" onClick={() => props.select(null)}>
               Volver
             </button>
+            <button id="Crear constelación" onClick={openDrawingCanvas}
+            >
+              Crear constelación
+            </button>
           </div>
           {props.planet.name.toUpperCase()}
           <div>
-            <video
-              width="25%"
-              height="auto"
-              loop
-              autoPlay
-              muted
-              >
-                <source src="../../k2-22.mp4" type="video/mp4" />
-                Tu navegador no soporta el elemento de video
-              </video>
+          <div>
+          <img
+            src="../../k2-22.gif"
+            alt="Descripción del GIF"
+            width="25%"
+            height="auto"
+            style={{ display: 'block', margin: '0 auto' }}
+          />
+        </div>
           </div>
           <div>
             <span id="description" className="planet_description">{props.planet.description || "11 Com b is a gas giant exoplanet that orbits a K-type star. Its mass is 19.4 Jupiters, it takes 326.03 days to complete one orbit of its star, and is 1.29 AU from its star. Its discovery was announced in 2008."}</span>

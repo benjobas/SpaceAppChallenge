@@ -3,7 +3,6 @@ import axios from 'axios';
 import Planets from './Planets.jsx';
 import PlanetModal from './PlanetModal.jsx';
 import { CSSTransition } from 'react-transition-group';
-import DrawingModal from './DrawingModal.jsx';
 
 const App = () => {
   const [current, setCurrent] = useState(null);
@@ -72,8 +71,6 @@ const App = () => {
 
   return (
     <div id="main">
-       <button onClick={openModal}>Dibujo</button>
-      <DrawingModal isOpen={isModalOpen} onClose={closeModal} />
       <svg
         id="planet_container"
         height="100vh"

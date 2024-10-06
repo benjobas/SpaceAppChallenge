@@ -44,6 +44,8 @@ const insertPlanets = async (entries) => {
         dec: 17.7932516,
         color: null,
         description: "11 Com b is a gas giant exoplanet that orbits a K-type star. Its mass is 19.4 Jupiters, it takes 326.03 days to complete one orbit of its star, and is 1.29 AU from its star. Its discovery was announced in 2008.",
+        starTemp: 4213,
+        starLum: 300,
       },
       {
         name: "11 UMi b",
@@ -60,6 +62,8 @@ const insertPlanets = async (entries) => {
         dec: 71.8239428,
         color: null,
         description : "11 UMi b is a gas giant exoplanet that orbits a K-type star. Its mass is 10.3 Jupiters, it takes 516.22 days to complete one orbit of its star, and is 1.54 AU from its star. Its discovery was announced in 2009.",
+        starTemp: 4213,
+        starLum: 300,
       }
     ];
     
