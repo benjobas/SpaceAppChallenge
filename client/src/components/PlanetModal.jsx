@@ -31,7 +31,7 @@ const PlanetModal = (props) => {
             id="close_modal"
             onClick={() => props.select(null)}
           >
-            Volver
+            Back
           </button>
           {!isDrawingOpen && (
             <>
@@ -40,7 +40,7 @@ const PlanetModal = (props) => {
                 id="Crear_constelacion"
                 onClick={openDrawingCanvas}
               >
-                Crear constelación
+                Create constellation
               </button>
             </>
           )}
@@ -61,30 +61,30 @@ const PlanetModal = (props) => {
             </div>
 
             <PlanetInfo
-              label="Ascensión Recta [grados]"
+              label="Right ascencion [degrees]"
               value={props.planet.orbitMax}
               unit="AU"
             />
             <PlanetInfo
-              label="Declinación [grados]"
+              label="Declination [degrees]"
               value={props.planet.orbitPer}
               unit="Days"
             />
             <PlanetInfo
-              label="Radio terrestre"
+              label="Terrestrial radio"
               value={props.planet.planetMass}
               unit="Earths"
             />
-            <PlanetInfo label="Radio Joviano" value={props.planet.planetTemp} />
+            <PlanetInfo label="Jovian Radio" value={props.planet.planetTemp} />
             <PlanetInfo
-              label="Distancia desde la Tierra"
+              label="Distance from Earth"
               value={props.planet.distance}
-              unit="Años Luz"
+              unit="Light years"
             />
             <PlanetInfo
-              label="Periodo"
+              label="Period"
               value={props.planet.discYear}
-              unit="días"
+              unit="days"
             />
             <ChatComponent />
           </>
@@ -95,7 +95,7 @@ const PlanetModal = (props) => {
         <div>
           <video width="25%" height="auto" loop autoPlay muted>
             <source src="../../k2-22.mp4" type="video/mp4" />
-            Tu navegador no soporta el elemento de video
+            Your browser does not support the video tag.
           </video>
         </div>
       </div>

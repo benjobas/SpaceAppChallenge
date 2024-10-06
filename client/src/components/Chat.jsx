@@ -6,9 +6,9 @@ const ChatComponent = (props) => {
   const [messages, setMessages] = useState([]);
   const [count, setCount] = useState(5)
   const [suggestions, setSuggestions] = useState([  
-    "¿Cual es el radio?",
-    "¿Hay vida en el planeta?",
-    "¿Que tiene de diferente la tierra con este planeta?",
+    "What is the radius?",
+    "There is life on the planet?",
+    "What is the difference between this planet and Jupiter?",
   ]);
 
   const chatEndRef = useRef(null);
@@ -96,12 +96,12 @@ const ChatComponent = (props) => {
       <div className="chat-input">
         <input
           type="text"
-          placeholder="Escribe tu consulta..."
+          placeholder="Type a message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage(input) && setInput("")}
         />
-        <button onClick={() => sendMessage(input)}>Enviar</button>
+        <button onClick={() => sendMessage(input)}>Send</button>
       </div>
     </div>
   );
