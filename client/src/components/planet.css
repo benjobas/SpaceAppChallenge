@@ -1,0 +1,7 @@
+.planet-label {
+  font-family: "Lexend", sans-serif;
+  color: white; /* O el color que desees */
+  font-size: 14px; /* Ajusta el tamaño de la fuente según tu necesidad */
+  text-align: center; /* Para centrar el texto */
+  line-height: 1; /* Para ajustar la altura de línea */
+}
