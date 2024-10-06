@@ -6,7 +6,7 @@ const controllers = require("../database/controllers.js");
 app.use(express.json({ limit: "50mb" }));
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.post("/populate", async (req, res) => {
+app.post("api/populate", async (req, res) => {
   try {
     await controllers.removeOld();
     const apiData = req.body;
@@ -18,7 +18,7 @@ app.post("/populate", async (req, res) => {
   }
 });
 
-app.get("/planets", async (req, res) => {
+app.get("/api/planets", async (req, res) => {
   try {
     const planets = await controllers.getPlanets();
     res.status(200).send(planets);
@@ -28,7 +28,7 @@ app.get("/planets", async (req, res) => {
   }
 });
 
-app.post("openai", async (req, res) => {
+app.post("/api/openai", async (req, res) => {
   try {
     const response = await controllers.openAI(req.body);
     res.status(200).send(response);
@@ -38,16 +38,6 @@ app.post("openai", async (req, res) => {
   }
 });
 
-app.post("/openai", async (req, res) => {
-  try {
-    const response = await controllers.openAI(req.body);
-
-    res.status(200).send(response);
-  } catch (error) {
-    console.error(error);
-    res.status(400).send("Request Failed");
-  }
-});
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
