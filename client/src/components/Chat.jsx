@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const ChatComponent = (props) => {
   const [input, setInput] = useState("");
@@ -11,15 +11,17 @@ const ChatComponent = (props) => {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
     try {
-      const response = await axios.post("/openai", { message: input });
+      const response = await axios.post(
+        "https://6533-181-212-199-41.ngrok-free.app/webhook",
+        { message: input }
+      );
 
-      console.log("Respuesta de OpenAI:", response.data); // Verifica la respuesta
+      console.log("Respuesta de OpenAI:", response.data.respuesta);
 
       const botMessage = {
         role: "assistant",
         content:
-          response.data.message.content ||
-          "No se recibió respuesta del asistente.",
+          response.data.respuesta || "No se recibió respuesta del asistente.",
       };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
