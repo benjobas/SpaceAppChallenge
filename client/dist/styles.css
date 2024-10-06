@@ -53,61 +53,21 @@ canvas {
 #planet_modal {
   position:absolute;
   z-index: 5;
-  height: 50%;
+  height: 75%;
   width: 50%;
-  background-color: rgba(87, 89, 99, 0.9);
-  border-radius: 3px;
-  display: grid;
-  grid-template: 1fr 2fr 2fr 1fr / 1.5fr 1fr 1fr 1fr;
+  background-color: #1B1820FC;
+  border-radius: 3px; 
   color: rgb(223, 219, 219);
 }
 
-#planet_name {
-  grid-area: 1/1/1/5;
-}
-
-#orbital_radius {
-  grid-area: 2/1/2/1;
-}
-
-#radius {
-  grid-area: 1/1/1/1;
-}
-
-#period {
-  grid-area: 2/1/2/1;
-}
-
-#mass {
-  grid-area: 1/1/1/1;
-}
-
-#temperature {
-  grid-area: 2/1/2/1;
-  margin-left: 10px;
-}
-
 #planet_mass {
-  grid-area: 3/1/3/1;
-}
-
-#distance {
-  grid-area: 4/1/4/4;
-}
-
-#discovery_year {
-  grid-area: 4/4/4/4;
-}
-
-#orbital_map {
-  grid-area: 2/2/4/5;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #planet_name, #orbital_radius, #planet_mass, #distance, #discovery_year, #orbital_map{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(59, 60, 65, 1);
   margin: 10px 10px;
   border-radius: 3px;
   font-size: 15px;
@@ -126,11 +86,16 @@ canvas {
 }
 
 #close_modal {
-  background-color: rgb(59, 60, 65);
-  border: none;
-  font-size: 20px;
-  margin-right: 10px;
-  color:rgb(223, 219, 219);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -1px;
+  background-color: #ffffff;
+  padding-left: 8px;
+  padding-right: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 108px;
 }
 
 .modal_t-enter {
@@ -259,7 +224,6 @@ button:hover {
 .planet_info {
   font-family: audioWide;
   font-size: 20px;
-  color: yellow;
 }
 
 .star_name {
@@ -328,4 +292,12 @@ html, body {
 
 .primaryButton:focus {
   outline: none;
+}
+
+.planet_description {
+font-family: Lexend;
+font-weight: 400;
+font-size: 18px;
+line-height: normal;
+color: #ffffff;
 }

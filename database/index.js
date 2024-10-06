@@ -15,6 +15,7 @@ const planetSchema = mongoose.Schema({
   ra: Number,
   dec: Number,
   color: String,
+  description: String,
 })
 
 const Planet = mongoose.model('Planet', planetSchema);
