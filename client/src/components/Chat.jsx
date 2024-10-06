@@ -93,7 +93,7 @@ const ChatComponent = (props) => {
           placeholder="Escribe tu consulta..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage(input) && setInput("")}
         />
         <button onClick={() => sendMessage(input)}>Enviar</button>
       </div>

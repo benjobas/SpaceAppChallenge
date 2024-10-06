@@ -53,7 +53,7 @@ canvas {
 #planet_modal {
   position: absolute;
   z-index: 5;
-  height: 75%;
+  height: 85%;
   width: 50%;
   background-color: #1b1820fc;
   border-radius: 3px;
@@ -403,8 +403,13 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Si el contenido es muy largo, el modal será scrolleable */
+  overflow-y: scroll; /* Habilitar scroll solo vertical */
   max-height: 90vh; /* Limitar la altura del modal */
+  scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+}
+
+#planet_modal::-webkit-scrollbar {
+  display: none;
 }
 
 #planet_name {

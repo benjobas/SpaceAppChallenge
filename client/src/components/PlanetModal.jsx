@@ -60,11 +60,6 @@ const PlanetModal = (props) => {
               />
             </div>
 
-            <div>
-              <span id="description" className="planet_description">
-                {props.planet.description || "Descripción no disponible"}
-              </span>
-            </div>
             <PlanetInfo
               label="Ascensión Recta [grados]"
               value={props.planet.orbitMax}
