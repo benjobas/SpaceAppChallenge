@@ -13,7 +13,6 @@ const PlanetModal = (props) => {
     setIsDrawingOpen(false);
   };
 
-  // Datos comunes que se muestran para planetas
   const PlanetInfo = ({ label, value, unit }) => (
     <div>
       <span>{label}:&nbsp;</span>
@@ -30,15 +29,18 @@ const PlanetModal = (props) => {
           <button id="close_modal" onClick={() => props.select(null)}>
             Volver
           </button>
+          {!isDrawingOpen && (<>
           <button id="Crear_constelacion" onClick={openDrawingCanvas}>
             Crear constelación
           </button>
+          </>)}
         </div>
 
         <h2>{props.planet.name.toUpperCase()}</h2>
 
-        {/* Imagen y descripción del planeta */}
-        <div>
+        {!isDrawingOpen && (
+          <>
+                  <div>
           <img
             src="../../k2-22.gif"
             alt="Descripción del GIF"
@@ -53,9 +55,7 @@ const PlanetModal = (props) => {
             {props.planet.description || "Descripción no disponible"}
           </span>
         </div>
-
-        {/* Información detallada del planeta */}
-        <PlanetInfo
+          <PlanetInfo
           label="Ascensión Recta [grados]"
           value={props.planet.orbitMax}
           unit="AU"
@@ -78,11 +78,11 @@ const PlanetModal = (props) => {
         />
         <PlanetInfo label="Periodo" value={props.planet.discYear} unit="días" />
         <ChatComponent />
+          </>
+        )}
 
-        {/* Canvas para dibujar constelaciones */}
         <DrawingCanvas isOpen={isDrawingOpen} onClose={closeDrawingCanvas} />
 
-        {/* Video */}
         <div>
           <video width="25%" height="auto" loop autoPlay muted>
             <source src="../../k2-22.mp4" type="video/mp4" />

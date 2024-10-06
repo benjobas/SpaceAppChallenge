@@ -7,30 +7,46 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (canvas) {
-        const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext("2d");
 
-        const backgroundImage = new Image();
-        backgroundImage.src = "../../TOI-2445-b.png";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-        backgroundImage.onload = () => {
-            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        };
+      const backgroundImage = new Image();
+      backgroundImage.src = "../../TOI-2445-b.png";
+
+      backgroundImage.onload = () => {
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+      };
+
+      const handleResize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     }
-}, [isOpen]);
+  }, [isOpen]);
 
   const startDrawing = (e) => {
     setIsDrawing(true);
     const ctx = canvasRef.current.getContext("2d");
     ctx.beginPath();
-    ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    ctx.strokeStyle = 'white'; // Color del trazo
-    ctx.lineWidth = 2; // Ancho del trazo
+    ctx.moveTo(e.clientX, e.clientY);
+    ctx.strokeStyle = 'white'; 
+    ctx.lineWidth = 2;
   };
 
   const draw = (e) => {
     if (!isDrawing) return;
+    
     const ctx = canvasRef.current.getContext("2d");
-    ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+    ctx.lineTo(e.clientX, e.clientY);
     ctx.stroke();
   };
 
@@ -42,20 +58,33 @@ const DrawingCanvas = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const exportAsImage = () => {
+    const canvas = canvasRef.current;
+
+    const image = canvas.toDataURL('image/png');
+
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = 'drawing.png';
+    link.click()
+  }
   return (
     isOpen && (
-      <div className="drawing-modal">
+      <div className="drawing-modal" style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", zIndex: 1000 }}>
         <canvas
           ref={canvasRef}
-          width={800}
-          height={600}
           onMouseDown={startDrawing}
           onMouseMove={draw}
           onMouseUp={endDrawing}
           onMouseLeave={endDrawing}
-          style={{ border: "1px solid black", backgroundColor: "transparent" }}
+          style={{ 
+            border: "1px solid black", 
+            backgroundColor: "transparent", 
+            display: "block" 
+          }}
         />
-        <button onClick={handleClose}>Cerrar</button>
+        <button onClick={exportAsImage} style={{ position: "absolute", top: 10, left: 10 }}>Export as Image</button>
+        <button onClick={handleClose} style={{ position: "absolute", top: 10, right: 10 }}>Close</button>
       </div>
     )
   );
