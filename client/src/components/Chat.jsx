@@ -5,7 +5,7 @@ const ChatComponent = (props) => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [suggestions, setSuggestions] = useState([
-    "¿Porque en K2-22 no hay agua?",
+    "¿Porque no hay agua?",
     "¿Cual es la temperatura?",
     "¿En que influye su distancia desde la tierra?",
   ]);
