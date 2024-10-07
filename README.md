@@ -2,6 +2,9 @@
 
 Exoplanetary is an interactive web application that utilizes NASA's open exoplanet API to display confirmed exoplanets within the observable universe that lie in the habitable zone of their parent stars. The application renders exoplanets on a virtual "night sky" based on their declination and right ascension coordinates. Each planet is interactive, providing details about the exoplanet, and includes an elliptical orbit map to show its relative speed around the parent star.
 
+## Video demo
+[LINK VIDEO
+](https://drive.google.com/file/d/1pMRQ7A72GyK8aO14KDTy6mKyBvkfBwrE/view?usp=sharing)
 ## Features
 
 - **Interactive Planet Map**: Displays exoplanets in the night sky based on NASA's API data.
