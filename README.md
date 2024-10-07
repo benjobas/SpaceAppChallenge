@@ -11,7 +11,7 @@ Exoplanetary is an interactive web application that utilizes NASA's open exoplan
 
 ## Prerequisites
 
-- Node.js (v14+)
+- Node.js (v16)
 - MongoDB database (local or cloud)
 - NASA Exoplanet API Key
 - OpenAI API Key (for ChatGPT functionality if used)
